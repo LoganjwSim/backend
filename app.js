@@ -1,11 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 const todosRouter = require("./routes/todos");
 
 const app = express();
 
 const port = 3010;
 
-app.use(express.json()); 
+app.use(cors());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/todos", todosRouter);
 
